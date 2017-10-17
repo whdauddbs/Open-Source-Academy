@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_index"
+    tools:context="com.example.administrator.pasugoon.PermissionActivity">
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_large2"
+        android:layout_marginTop="20dp"
+        android:gravity="end"
+        android:text="@string/index_message"
+        android:textColor="@color/text_color_black"
+        android:textSize="@dimen/text_size_large2"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:text="@string/permission_checking"
+        android:textColor="@color/text_color_red"
+        android:textSize="@dimen/text_size_medium2"
+        android:textStyle="bold"/>
+
+
+</RelativeLayout>

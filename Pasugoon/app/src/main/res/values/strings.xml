@@ -1,9 +1,37 @@
 <resources>
-    <string name="app_name">Pasugoon</string>
+    <string name="app_name">파수군</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    
+    <!-- 권한 화면 -->
+    <string name="permission_checking">권한 확인중…</string>
+    <string name="permission_setting_title">권한 설정</string>
+    <string name="permission_setting_message">앱을 실행하기 위해서는 권한 설정을 해야합니다!</string>
+    <string name="permission_setting_restart">권한을 설정하고 다시 실행해 주세요!</string>
+    
+    <!-- 시작 화면 -->
+    <string name="index_message">파수군\nfor\nAndroid</string>
+    <string name="YJM">YJM</string>
+    
+    <string name="submit">확인</string>
+    <string name="network_not_working">네트워크에 연결되어 있지 않습니다.\n확인 후 다시 실행해 주세요.</string>
+    
+    <!-- 왼쪽 메뉴-->
+    <string name="set_auto_off_time">기능끄기 시간 설정</string>
+    <string name="check_people">부대원 설정 여부 확인</string>
+
+    <!-- 공통 -->
+    <string name="skip_string">…</string>
+
+    <string name="close">닫기</string>
+    <string name="cancel">취소</string>
+    <string name="setting">설정</string>
+    <string name="prev">이전</string>
+    <string name="next">다음</string>
+    <string name="complete">완료</string>
+
 </resources>
