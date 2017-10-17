@@ -12,6 +12,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+
 import com.example.administrator.pasugoon.lib.MyToast;
 
 import java.util.ArrayList;
@@ -40,7 +42,7 @@ public class PermissionActivity extends AppCompatActivity {
             @return 필요한 권한이 모두 부여되었다면 true, 그렇지 않다면 false
     */
     private boolean checkAndRequestPermissions(){
-        String [] permissions = new String[]{
+        String [] permissions = new String[]{               //권한 추가할때 여기다가 추가
                 Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.CHANGE_WIFI_STATE,
                 Manifest.permission.READ_PHONE_STATE
@@ -48,6 +50,7 @@ public class PermissionActivity extends AppCompatActivity {
         List<String> listPermissionsNeeded = new ArrayList<>();
 
         for ( String permission:permissions) {
+            Log.v("Permission", "Permission");
             if (ContextCompat.checkSelfPermission(this,permission) != PackageManager.PERMISSION_GRANTED ) {
                 listPermissionsNeeded.add(permission);
             }

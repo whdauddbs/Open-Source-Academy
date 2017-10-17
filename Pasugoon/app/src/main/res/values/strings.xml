@@ -18,7 +18,7 @@
     <string name="YJM">YJM</string>
     
     <string name="submit">확인</string>
-    <string name="network_not_working">네트워크에 연결되어 있지 않습니다.\n확인 후 다시 실행해 주세요.</string>
+    <string name="network_not_working">네트워크에 연결되어 있지 않습니다.\n일부 기능이 제한됩니다.</string>
     
     <!-- 왼쪽 메뉴-->
     <string name="set_auto_off_time">기능끄기 시간 설정</string>
