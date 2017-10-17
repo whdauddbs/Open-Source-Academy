@@ -45,7 +45,8 @@ public class PermissionActivity extends AppCompatActivity {
         String [] permissions = new String[]{               //권한 추가할때 여기다가 추가
                 Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.CHANGE_WIFI_STATE,
-                Manifest.permission.READ_PHONE_STATE
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.INTERNET
         };
         List<String> listPermissionsNeeded = new ArrayList<>();
 
