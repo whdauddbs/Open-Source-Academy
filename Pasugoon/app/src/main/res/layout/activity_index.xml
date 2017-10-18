@@ -39,7 +39,8 @@
         android:layout_margin="8dp"
         android:gravity="center"
         android:text="@string/network_not_working"
-        android:textColor="@color/text_color_white"
+        android:textColor="@color/text_color_purple"
+        android:textStyle="bold"
         android:textSize="@dimen/text_size_medium"
         android:visibility="gone" />
 

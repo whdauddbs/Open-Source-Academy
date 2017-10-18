@@ -132,7 +132,7 @@ public class IndexActivity extends AppCompatActivity {
     public void startMain() {
         MyLog.d("checkFunction", "startMain");
         Intent intent = new Intent(IndexActivity.this, MainActivity.class);
-        //intent.putExtra("netstate",NetworkState);
+        intent.putExtra("netstate",NetworkState);
         startActivity(intent);
     }
 
@@ -175,6 +175,18 @@ public class IndexActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                TextView messageText = (TextView) findViewById(R.id.message);
+                messageText.setText(getBaseContext().getText(R.string.server_not_connecting));
+                messageText.setVisibility(View.VISIBLE);
+
+                Button closeButton = (Button) findViewById(R.id.close);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+                closeButton.setVisibility(View.VISIBLE);
                 MyLog.d(TAG, "no internet connectivity");
             }
         });

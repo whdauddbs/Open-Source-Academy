@@ -10,6 +10,7 @@
     <color name="text_color_dark_red">#880000</color>
     <color name="text_color_white">#FFF</color>
     <color name="text_color_gray">#888888</color>
+    <color name="text_color_purple">#9400d3</color>
 
     <color name="bg_default">#88EEEEEE</color>
     <color name="bg_white">#FFFFFF</color>
