@@ -31,11 +31,7 @@ public class StringLib {
      * @return null이거나 ""이라면 true, 아니라면 false
      */
     public boolean isBlank(String str) {
-        if (str == null || str.equals("")) {
-            return true;
-        } else {
-            return false;
-        }
+        return str == null || str.equals("");
     }
 
     /**

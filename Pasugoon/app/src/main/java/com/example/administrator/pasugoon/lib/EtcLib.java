@@ -88,15 +88,11 @@ public class EtcLib {
         if (number == null) {
             return false;
         } else {
-            if (Pattern.matches("\\d{2}-\\d{3}-\\d{4}", number)
+            return Pattern.matches("\\d{2}-\\d{3}-\\d{4}", number)
                     || Pattern.matches("\\d{3}-\\d{3}-\\d{4}", number)
                     || Pattern.matches("\\d{3}-\\d{4}-\\d{4}", number)
                     || Pattern.matches("\\d{10}", number)
-                    || Pattern.matches("\\d{11}", number) ) {
-                return true;
-            } else {
-                return false;
-            }
+                    || Pattern.matches("\\d{11}", number);
         }
     }
 

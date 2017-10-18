@@ -123,11 +123,7 @@ public class ProfileActivity extends AppCompatActivity{
     }
 
     private boolean isNoName(String name) {
-        if (StringLib.getInstance().isBlank(name)) {
-            return true;
-        } else {
-            return false;
-        }
+        return StringLib.getInstance().isBlank(name);
     }
 
     private String getPhoneNumber() {

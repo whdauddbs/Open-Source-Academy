@@ -102,7 +102,7 @@ public class IndexActivity extends AppCompatActivity {
             public void onResponse(Call<MemberItem> call, Response<MemberItem> response) {
                 MemberItem item = response.body();
                 if (response.isSuccessful() && !StringLib.getInstance().isBlank(item.phone)) {
-                    MyLog.d(TAG, "success " + response.body().toString());;
+                    MyLog.d(TAG, "success " + response.body().toString());
                     setMemberItem(item);
                 } else {
                     MyLog.d(TAG, "not success");

@@ -49,11 +49,7 @@ public class RemoteLib {
                     (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo info = cm.getActiveNetworkInfo();
 
-            if (info != null) {
-                return true;
-            } else {
-                return false;
-            }
+            return info != null;
         } catch (Exception e) {
             return false;
         }

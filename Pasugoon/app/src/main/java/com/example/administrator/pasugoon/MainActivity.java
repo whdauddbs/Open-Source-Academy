@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
      * 프로필 이미지와 프로필 이름을 설정한다.
      */
     private void setProfileView() {
-        profileIconImage = (CircleImageView) headerLayout.findViewById(R.id.profile_icon);
+        profileIconImage = headerLayout.findViewById(R.id.profile_icon);
         profileIconImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
         });
         profileIconImage.setImageResource(R.drawable.ic_user);
 
-        TextView nameText = (TextView) headerLayout.findViewById(R.id.name);
+        TextView nameText = headerLayout.findViewById(R.id.name);
         nameText.setText(ProfileName);
     }
 
