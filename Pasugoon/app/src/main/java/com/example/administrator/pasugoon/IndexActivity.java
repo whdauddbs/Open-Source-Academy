@@ -134,6 +134,8 @@ public class IndexActivity extends AppCompatActivity {
         Intent intent = new Intent(IndexActivity.this, MainActivity.class);
         intent.putExtra("netstate",NetworkState);
         startActivity(intent);
+
+        finish();
     }
 
     /**
@@ -148,6 +150,7 @@ public class IndexActivity extends AppCompatActivity {
             insertMemberPhone();
         }
         startMain();
+
     }
 
     /**

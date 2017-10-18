@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SharedPreferences pref = getSharedPreferences("pref", 0);   //값을 가져오기 위해 사용
-        MyLog.d(TAG, "onCreate");
         memberItem = ((MyApp)getApplication()).getMemberItem();
         ProfileName = pref.getString("name", "User");
 
@@ -98,7 +97,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -108,7 +106,6 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        MyLog.d(TAG, "onNavigation");
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
