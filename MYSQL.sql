@@ -16,3 +16,6 @@ CREATE TABLE `YoonJongMyeong_2` (
   `chk_member_seq` int(11) NOT NULL,
   PRIMARY KEY (`seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+alter table yoonjongmyeong_1 auto_increment = 1;
+alter table yoonjongmyeong_2 auto_increment = 1;
