@@ -23,18 +23,15 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MyLog.d("checkFunction", "onCreate1");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        MyLog.d("checkFunction", "onCreate2");
         setSupportActionBar(toolbar);
-        MyLog.d("checkFunction", "onCreate3");
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        MyLog.d("checkFunction", "onCreate4");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
