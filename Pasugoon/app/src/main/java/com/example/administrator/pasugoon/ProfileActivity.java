@@ -27,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
+public class ProfileActivity extends AppCompatActivity{
     private final String TAG = "checkFunction";
     Context context;
     SharedPreferences pref;
@@ -75,20 +75,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void setView() {
-        MyLog.d(TAG, "setView1");
-        profileIconImage = (ImageView) findViewById(R.id.profile_icon);
-        //profileIconImage.setOnClickListener(this);
-        MyLog.d(TAG, "setView2");
-        profileIconChangeImage = (ImageView) findViewById(R.id.profile_icon_change);
-        profileIconChangeImage.setOnClickListener(this);
-
-        MyLog.d(TAG, "setView3");
+        MyLog.d(TAG, "setView");
         nameEdit = (EditText) findViewById(R.id.profile_name);
         nameEdit.setText(currentName);
-        MyLog.d(TAG, "setView4");
+
         phoneEdit = (EditText) findViewById(R.id.profile_phone);
         phoneEdit.setText(PhoneNumber);
-        MyLog.d(TAG, "setView5");
+
         TextView phoneStateEdit = (TextView) findViewById(R.id.phone_state);
         if (PhoneNumber.startsWith("0")) {
             phoneStateEdit.setText("(" + getResources().getString(R.string.device_number) + ")");
@@ -197,16 +190,5 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         finish();
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.profile_icon || v.getId() == R.id.profile_icon_change) {
-            startProfileIconChange();
-        }
-    }
-    private void startProfileIconChange() {
-        Intent intent = new Intent(this, ProfileIconActivity.class);
-        startActivity(intent);
     }
 }
