@@ -17,7 +17,9 @@ db.connect(function(err) {
 	if(err) {
 		console.log('Unabel to connect to MySQL.');
 		process.exit(1);
-	}
+	} else {
+    console.log('Enabel to connect to MySQL.');
+  }
 });
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -27,8 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('member',require('./routes/member'));
-app.use('check',require('./routes/check'));
+app.use('/member',require('./routes/member'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

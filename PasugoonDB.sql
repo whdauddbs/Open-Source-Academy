@@ -1,0 +1,1 @@
+SELECT * FROM pasugoon.pasugoon_member;

@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.administrator.pasugoon.lib.MyLog;
 import com.example.administrator.pasugoon.lib.MyToast;
 
 import java.util.ArrayList;
@@ -46,6 +47,7 @@ public class PermissionActivity extends AppCompatActivity {
                 Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.CHANGE_WIFI_STATE,
                 Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.INTERNET
         };
         List<String> listPermissionsNeeded = new ArrayList<>();
@@ -113,6 +115,7 @@ public class PermissionActivity extends AppCompatActivity {
      */
     private void goIndexActivity() {
         Intent intent = new Intent(this, IndexActivity.class);
+        MyLog.d("checkFunction", "PermissionActivity");
         startActivity(intent);
 
         finish();
