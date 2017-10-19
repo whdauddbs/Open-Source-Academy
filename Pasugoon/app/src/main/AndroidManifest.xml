@@ -42,17 +42,21 @@
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
-            android:exported="true">
-        </receiver>
+            android:exported="false"
+            android:label="MyReceiver"></receiver>
 
         <activity
             android:name=".alertdialogActivity"
             android:theme="@android:style/Theme.Dialog">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

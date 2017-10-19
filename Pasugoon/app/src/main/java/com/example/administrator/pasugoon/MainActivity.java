@@ -24,6 +24,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.ViewDebug;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity
     SharedPreferences pref;
 
     CircleImageView profileIconImage;
-    MyReceiver myReceiver = new MyReceiver();
 
 
     @Override
@@ -127,6 +127,17 @@ public class MainActivity extends AppCompatActivity
 
         headerLayout = navigationView.getHeaderView(0);
 
+        profileIconImage = headerLayout.findViewById(R.id.profile_icon);
+        profileIconImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawer.closeDrawer(GravityCompat.START);
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+        profileIconImage.setImageResource(R.drawable.ic_user);
+
 
     }
 
@@ -147,6 +158,7 @@ public class MainActivity extends AppCompatActivity
                 case R.id.install_vaccine_button:
                     MyLog.d(TAG,"install_vaccine_button");
                     if(NetworkState == true) {
+                        MyLog.d(TAG, "true");
                         if (isVaccine == null) {
                             MyLog.d(TAG, "marketLaunch");
                             Intent marketLaunch = new Intent(Intent.ACTION_VIEW);
@@ -155,26 +167,26 @@ public class MainActivity extends AppCompatActivity
                         } else {
                             Toast.makeText(getApplicationContext(), "이미 백신이 설치되었습니다.", Toast.LENGTH_SHORT).show();
                         }
-                    } else { Toast.makeText(getApplicationContext(),"네트워크 연결이 필요합니다.", Toast.LENGTH_SHORT).show(); }
+                    } else { MyLog.d(TAG, "false");Toast.makeText(getApplicationContext(),"네트워크 연결이 필요합니다.", Toast.LENGTH_SHORT).show(); }
 
                     break;
 
                 case R.id.warning_toggle_button:
-                    MyLog.d(TAG,"warning_toggle_button");
+                    MyLog.d(TAG,"warning_toggle_button1");
+                    Intent intent = new Intent(getApplicationContext(),MyService.class);
                     if (cameraWarning_Set == false) {
-                        IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction(Intent.ACTION_CAMERA_BUTTON);
-                        intentFilter.addAction(Camera.ACTION_NEW_PICTURE);
-                        intentFilter.addAction(Camera.ACTION_NEW_VIDEO);
-                        registerReceiver(myReceiver, intentFilter);
-
+                        startService(intent);
                         cameraWarning_Set = true;
-                        Toast.makeText(getApplicationContext(), "카메라를 사용할 떄마다 경고창이 뜹니다", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "카메라를 사용할 때마다 경고창이 뜹니다", Toast.LENGTH_SHORT).show();
                     } else {
-                        unregisterReceiver(myReceiver);
+                        MyLog.d(TAG,"warning_toggle_button_true1");
+                        stopService(intent);
+                        MyLog.d(TAG,"warning_toggle_button_true2");
                         cameraWarning_Set = false;
+                        MyLog.d(TAG,"warning_toggle_button_true3");
                         Toast.makeText(getApplicationContext(), "경고창을 해제합니다.", Toast.LENGTH_SHORT).show();
                     }
+                    MyLog.d(TAG,"warning_toggle_button2");
                     toggle_Button(BooleanToInt(cameraWarning_Set),imageView3);
                     break;
             }
@@ -270,43 +282,45 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void  save() {
-        MyLog.d(TAG,"save");
-        final MemberItem newItem = getMemberItem();
+        if (NetworkState == true) {
+            MyLog.d(TAG, "save");
+            final MemberItem newItem = getMemberItem();
 
-        if (!isChanged(newItem)) {
-            MyToast.s(this, R.string.no_change);
-            return;
-        }
+            if (!isChanged(newItem)) {
+                MyToast.s(this, R.string.no_change);
+                return;
+            }
 
-        RemoteService remoteService =
-                ServiceGenerator.createService(RemoteService.class);
+            RemoteService remoteService =
+                    ServiceGenerator.createService(RemoteService.class);
 
-        Call<String> call = remoteService.insertMember(newItem);
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                if (response.isSuccessful()) {
-                    String seq = response.body();
-                    try {
-                        currentItem.seq = Integer.parseInt(seq);
-                        if (currentItem.seq == 0) {
+            Call<String> call = remoteService.insertMember(newItem);
+            call.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response) {
+                    if (response.isSuccessful()) {
+                        String seq = response.body();
+                        try {
+                            currentItem.seq = Integer.parseInt(seq);
+                            if (currentItem.seq == 0) {
+                                MyToast.s(context, R.string.member_insert_fail_message);
+                                return;
+                            }
+                        } catch (Exception e) {
                             MyToast.s(context, R.string.member_insert_fail_message);
                             return;
                         }
-                    } catch (Exception e) {
-                        MyToast.s(context, R.string.member_insert_fail_message);
-                        return;
+                        currentItem.state = newItem.state;
+                        currentItem.offTime = newItem.offTime;
                     }
-                    currentItem.state = newItem.state;
-                    currentItem.offTime = newItem.offTime;
                 }
-            }
 
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-            }
+                @Override
+                public void onFailure(Call<String> call, Throwable t) {
+                }
 
-        });
+            });
+        }
     }
 
     private boolean isChanged(MemberItem newItem) {
@@ -338,7 +352,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-     * 화면이 새로 보여질 대마다 setProfileView() 를 호출하고, 기능 상태를 점검한다.
+     * 화면이 새로 보여질 때마다 setProfileView() 를 호출하고, 기능 상태를 점검한다.
      */
     @Override
     protected void onResume() {
@@ -360,20 +374,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-     * 프로필 이미지와 프로필 이름을 설정한다.
+     *  프로필 이름을 설정한다.
      */
     private void setProfileView() {
-        profileIconImage = headerLayout.findViewById(R.id.profile_icon);
-        profileIconImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawer.closeDrawer(GravityCompat.START);
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
-        profileIconImage.setImageResource(R.drawable.ic_user);
-
+        ProfileName = pref.getString("name", "User");
         TextView nameText = headerLayout.findViewById(R.id.name);
         nameText.setText(ProfileName);
     }

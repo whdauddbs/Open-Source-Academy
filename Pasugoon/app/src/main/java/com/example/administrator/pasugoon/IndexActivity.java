@@ -191,7 +191,7 @@ public class IndexActivity extends AppCompatActivity {
         TextView messageText = (TextView) findViewById(R.id.message);
         messageText.setText(getBaseContext().getText(R.string.server_not_connecting));
         messageText.setVisibility(View.VISIBLE);
-
+        NetworkState = false;
         Button closeButton = (Button) findViewById(R.id.close);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override

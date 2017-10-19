@@ -28,20 +28,6 @@
             app:civ_border_color="#AAAAAA"
             app:civ_border_width="2dp"/>
 
-        <ImageView
-        android:id="@+id/profile_icon_change"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="4dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/button_circle"
-        android:elevation="4dp"
-        android:padding="8dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_camera" />
-
     </RelativeLayout>
 
     <LinearLayout
