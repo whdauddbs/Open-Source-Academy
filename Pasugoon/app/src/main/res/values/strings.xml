@@ -23,7 +23,7 @@
 
     <!-- 왼쪽 메뉴-->
     <string name="main">메인화면</string>
-    <string name="set_auto_off_time">기능끄기 시간 설정</string>
+    <string name="set_auto_off_time">자동실행 시간 설정</string>
     <string name="check_people">부대원 설정 여부 확인</string>
     <string name="security_day">사이버보안진단의날 설정</string>
 
@@ -69,5 +69,9 @@
     <string name="warning_use_camera">부대 내에서는 사진 촬영금지입니다! </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 시간 설정 화면 -->
+    <string name="descript_time_setting">설정한 시간 이후에 스마트폰을 켰을때 파수군을 자동으로 실행합니다.</string>
+    <string name="delete_setting">설정 해제</string>
 
 </resources>

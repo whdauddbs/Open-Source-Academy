@@ -22,11 +22,11 @@ public class alertdialogActivity extends Activity {
 
         setContentView(R.layout.activity_alertdialog);
 
-        TextView adMessage = (TextView)findViewById(R.id.message);
+        TextView adMessage = findViewById(R.id.message);
         adMessage.setText(notiMessage);
 
-        Button okButton = (Button)findViewById(R.id.submit);
-        Button settingButton = (Button)findViewById(R.id.setting);
+        Button okButton = findViewById(R.id.submit);
+        Button settingButton = findViewById(R.id.setting);
         okButton.setOnClickListener(new MyListener());
         settingButton.setOnClickListener(new MyListener());
 

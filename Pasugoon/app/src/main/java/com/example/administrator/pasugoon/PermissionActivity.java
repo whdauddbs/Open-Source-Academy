@@ -55,7 +55,8 @@ public class PermissionActivity extends AppCompatActivity {
                 Manifest.permission.NFC,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.CAMERA
+                Manifest.permission.CAMERA,
+                Manifest.permission.RECEIVE_BOOT_COMPLETED
         };
         List<String> listPermissionsNeeded = new ArrayList<>();
 

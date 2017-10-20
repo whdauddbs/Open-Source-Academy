@@ -4,9 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.hardware.Camera;
 import android.icu.text.SimpleDateFormat;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -400,15 +398,19 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_main) {
-            // Handle the camera action
+            drawer.closeDrawer(GravityCompat.START);
         } else if (id == R.id.nav_alarm) {
-
+            drawer.closeDrawer(GravityCompat.START);
+            Intent intent = new Intent(MainActivity.this, AlarmActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_check) {
-
-        } else if (id == R.id.nav_day) {
-
+            drawer.closeDrawer(GravityCompat.START);
+            Intent intent = new Intent(MainActivity.this, CheckActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_profile) {
-
+            drawer.closeDrawer(GravityCompat.START);
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

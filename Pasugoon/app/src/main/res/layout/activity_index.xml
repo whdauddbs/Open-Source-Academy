@@ -27,7 +27,7 @@
         android:layout_marginBottom="@dimen/spacing_xlarge2"
         android:gravity="center"
         android:text="@string/YJM"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#6B8E23"
         android:textSize="@dimen/text_size_large2"
         android:textStyle="bold" />
 
