@@ -15,11 +15,8 @@
         <item
             android:id="@+id/nav_check"
             android:icon="@drawable/ic_check"
-            android:title="@string/check_people" />
-        <item
-            android:id="@+id/nav_day"
-            android:icon="@drawable/ic_calendar"
-            android:title="@string/security_day" />
+            android:title="@string/check_people"
+            android:visible="false"/>
 
     </group>
 

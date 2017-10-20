@@ -22,6 +22,7 @@ import java.util.List;
 
 public class PermissionActivity extends AppCompatActivity {
     private static final int PERMISSION_MULTI_CODE = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,14 @@ public class PermissionActivity extends AppCompatActivity {
                 Manifest.permission.CHANGE_WIFI_STATE,
                 Manifest.permission.READ_PHONE_STATE,
                 Manifest.permission.ACCESS_NETWORK_STATE,
-                Manifest.permission.INTERNET
+                Manifest.permission.INTERNET,
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.BLUETOOTH_ADMIN,
+                Manifest.permission.NFC,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.CAMERA,
+                Manifest.permission.RECEIVE_BOOT_COMPLETED
         };
         List<String> listPermissionsNeeded = new ArrayList<>();
 

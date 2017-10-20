@@ -19,11 +19,11 @@
 
     <string name="submit">확인</string>
     <string name="network_not_working">네트워크에 연결되어 있지 않습니다.\n일부 기능이 제한됩니다.</string>
-    <string name="server_not_connecting">서버와 연결이 되지 않습니다.\n잠시후에 다시 시도해주시기 바랍니다.</string>
+    <string name="server_not_connecting">서버와 연결이 되지 않습니다.\n일부 기능이 제한됩니다.</string>
 
     <!-- 왼쪽 메뉴-->
     <string name="main">메인화면</string>
-    <string name="set_auto_off_time">기능끄기 시간 설정</string>
+    <string name="set_auto_off_time">자동실행 시간 설정</string>
     <string name="check_people">부대원 설정 여부 확인</string>
     <string name="security_day">사이버보안진단의날 설정</string>
 
@@ -61,10 +61,17 @@
     <string name="install_vaccine">백신 설치</string>
     <string name="warning_camera">카메라 사용시 경고 On</string>
     <string name="wireless_off_description">Wi-fi, NFC, bluetooth 등 무선 통신 기능을 원클릭으로 종료합니다.</string>
-    <string name="install_vaccine_description">초록불 : 백신 설치 / 빨간불 : 백신 미설치\n 버튼을 누르면 백신설치 화면으로 이동합니다.</string>
+    <string name="install_vaccine_description">초록불 : 백신 설치 / 빨간불 : 백신 미설치(V3기준)\n 버튼을 누르면 백신(V3)설치 화면으로 이동합니다.</string>
     <string name="warning_camera_description">카메라 사용시 경고창을 띄울지 설정합니다.</string>
 
+    <!-- 경고창 -->
+    <string name="warning">경고!</string>
+    <string name="warning_use_camera">부대 내에서는 사진 촬영금지입니다! </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 시간 설정 화면 -->
+    <string name="descript_time_setting">설정한 시간 이후에 스마트폰을 켰을때 파수군을 자동으로 실행합니다.</string>
+    <string name="delete_setting">설정 해제</string>
 
 </resources>

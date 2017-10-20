@@ -27,7 +27,7 @@
         android:layout_marginBottom="@dimen/spacing_xlarge2"
         android:gravity="center"
         android:text="@string/YJM"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#6B8E23"
         android:textSize="@dimen/text_size_large2"
         android:textStyle="bold" />
 
@@ -38,7 +38,6 @@
         android:layout_above="@+id/close"
         android:layout_margin="8dp"
         android:gravity="center"
-        android:text="@string/network_not_working"
         android:textColor="@color/text_color_purple"
         android:textStyle="bold"
         android:textSize="@dimen/text_size_medium"
@@ -51,7 +50,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
-        android:background="@drawable/button_round_red"
+        android:background="@drawable/button_round"
         android:text="@string/submit"
         android:textSize="@dimen/text_size_medium"
         android:visibility="gone" />

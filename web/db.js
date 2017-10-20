@@ -5,10 +5,11 @@ var pool;
 exports.connect = function() {
 	pool = mysql.createPool({
 		connectionLimit: 100,
-		host	: '127.0.0.1',
+		host	: 'localhost',
 		user	: 'root',
 		password: 'root',
-		database: 'OSAM'
+		database: 'OSAM',
+		port	: 3306
 	});
 }
 

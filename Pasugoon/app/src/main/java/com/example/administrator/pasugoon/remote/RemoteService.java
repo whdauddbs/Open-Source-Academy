@@ -26,8 +26,8 @@ public interface RemoteService {
     @GET("/member/{phone}")
     Call<MemberItem> selectMember(@Path("phone") String phone);
 
-    /*@POST("/member/info")
-    Call<String> insertMemberInfo(@Body MemberItem memberInfoItem);*/
+    @POST("/member/info")
+    Call<String> insertMember(@Body MemberItem memberItem);
 
     @FormUrlEncoded
     @POST("/member/phone")

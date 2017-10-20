@@ -39,6 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/spacing_medium2"
                     android:layout_marginBottom="@dimen/spacing_small"
                     android:orientation="horizontal">
 
@@ -56,13 +57,15 @@
                         android:id="@+id/wireless_toggle_button"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/button_round_red"/>
+                        android:src="@drawable/button_round_red"
+                        android:scaleType="fitXY"/>
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_basic_gray"
                     android:text="@string/wireless_off_description"
                     android:textSize="@dimen/text_size_small"
                     android:textColor="@color/text_color_gray"/>
@@ -101,6 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/spacing_medium2"
                     android:layout_marginBottom="@dimen/spacing_small"
                     android:orientation="horizontal">
 
@@ -118,13 +122,15 @@
                         android:id="@+id/install_vaccine_button"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/button_round_red"/>
+                        android:src="@drawable/button_round_red"
+                        android:scaleType="fitXY"/>
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_basic_gray"
                     android:text="@string/install_vaccine_description"
                     android:textSize="@dimen/text_size_small"
                     android:textColor="@color/text_color_gray"/>
@@ -165,6 +171,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:layout_marginBottom="@dimen/spacing_small"
+                    android:paddingBottom="@dimen/spacing_medium2"
                     android:orientation="horizontal">
 
                     <TextView
@@ -181,13 +188,15 @@
                         android:id="@+id/warning_toggle_button"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/button_round_red"/>
+                        android:src="@drawable/button_round_red"
+                        android:scaleType="fitXY"/>
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_basic_gray"
                     android:text="@string/warning_camera_description"
                     android:textSize="@dimen/text_size_small"
                     android:textColor="@color/text_color_gray"/>
@@ -203,6 +212,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/card3"
         android:id="@+id/dangerous_case_text"
-        android:text="Test"/>
+        android:paddingTop="@dimen/spacing_xlarge2"
+        android:gravity="center"
+        android:text="사고사례"/>
 
 </RelativeLayout>

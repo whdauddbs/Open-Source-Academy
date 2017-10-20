@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 public class MemberItem {
     public int seq;
     public String phone;
-    public String state;
+    public int state;
     @SerializedName("off_time") public String offTime;
 
     @Override

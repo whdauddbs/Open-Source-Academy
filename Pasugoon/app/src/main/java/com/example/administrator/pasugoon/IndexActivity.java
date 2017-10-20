@@ -64,6 +64,7 @@ public class IndexActivity extends AppCompatActivity {
     // 현재 인터넷에 접속할 수 없기 때문에 일부 기능을 사용할 수 없다는 메시지를 띄운다.
     private void showNoService() {
         TextView messageText = (TextView) findViewById(R.id.message);
+        messageText.setText(R.string.network_not_working);
         messageText.setVisibility(View.VISIBLE);
         MyLog.d("checkFunction", "ShowNoService");
         Button closeButton = (Button) findViewById(R.id.close);
@@ -71,6 +72,7 @@ public class IndexActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 NetworkState = false;
+                MyLog.d("checkFunction", "before_startMain");
                 startMain();
             }
         });
@@ -112,7 +114,8 @@ public class IndexActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<MemberItem> call, Throwable t) {
-                MyLog.d(TAG, "no internet connectivity");
+                notConnectServer();
+                MyLog.d(TAG, "no internet connectivity1");
                 MyLog.d(TAG, t.toString());
             }
         });
@@ -178,20 +181,24 @@ public class IndexActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                TextView messageText = (TextView) findViewById(R.id.message);
-                messageText.setText(getBaseContext().getText(R.string.server_not_connecting));
-                messageText.setVisibility(View.VISIBLE);
-
-                Button closeButton = (Button) findViewById(R.id.close);
-                closeButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                    }
-                });
-                closeButton.setVisibility(View.VISIBLE);
-                MyLog.d(TAG, "no internet connectivity");
+                notConnectServer();
+                MyLog.d(TAG, "no internet connectivity2");
             }
         });
+    }
+
+    private void notConnectServer() {
+        TextView messageText = (TextView) findViewById(R.id.message);
+        messageText.setText(getBaseContext().getText(R.string.server_not_connecting));
+        messageText.setVisibility(View.VISIBLE);
+        NetworkState = false;
+        Button closeButton = (Button) findViewById(R.id.close);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startMain();
+            }
+        });
+        closeButton.setVisibility(View.VISIBLE);
     }
 }
